@@ -10,7 +10,6 @@ class MainInput extends Component {
     const { newTask } = this.state;
     return (
       <div className="MainInput">
-        <button className="MainInput__button">Check all</button>
         <input
           value={newTask}
           onKeyPress={this.handleKeyPress}
@@ -39,8 +38,9 @@ class MainInput extends Component {
     const { addNewTask } = this.props;
     const { newTask } = this.state;
     const taskId = makeId();
+    const date = Date.now();
     if (e.key === 'Enter' && newTask !== '') {
-      addNewTask(newTask.trim(), taskId);
+      addNewTask(newTask.trim(), taskId, date);
       this.setState({ newTask: '' });
     }
   };

@@ -7,23 +7,26 @@ class Task extends Component {
   };
 
   componentDidMount() {
-    const { task } = this.props;
+    const { task, isDone } = this.props;
 
-    this.setState({ taskValue: task });
+    this.setState({ taskValue: task, isDone });
   }
 
   componentWillReceiveProps(nextProps) {
-    if (this.props.task !== nextProps.task) {
-      const { task } = nextProps;
+    if (
+      this.props.task !== nextProps.task ||
+      this.props.isDone !== nextProps.isDone
+    ) {
+      const { task, isDone } = nextProps;
 
-      this.setState({ taskValue: task });
+      this.setState({ taskValue: task, isDone });
     }
   }
 
   render() {
     const { taskValue, isDone } = this.state;
     return (
-      <div className="Task">
+      <li className="Task">
         <input
           onChange={this.handleCheckboxChange}
           checked={isDone}
@@ -41,7 +44,7 @@ class Task extends Component {
         <button onClick={this.handleRemove} className="Task__button">
           X
         </button>
-      </div>
+      </li>
     );
   }
 
@@ -52,12 +55,14 @@ class Task extends Component {
   };
 
   handleCheckboxChange = e => {
-    const { changeTask, id } = this.props;
+    const { changeTask, id, date } = this.props;
     const { taskValue } = this.state;
-    const value = e.target.checked;
+    const isDone = e.target.checked;
+    const newTask = { task: taskValue, id, isDone, date };
 
-    this.setState({ isDone: value });
-    changeTask(taskValue, id, value);
+    this.setState({ isDone });
+
+    changeTask(newTask);
   };
 
   handleBlur = e => {
@@ -76,12 +81,13 @@ class Task extends Component {
   };
 
   changeTaskProp = e => {
-    const { changeTask, id } = this.props;
+    const { changeTask, id, date } = this.props;
     const { isDone } = this.state;
-    const value = e.target.value.trim();
+    const task = e.target.value.trim();
+    const newTask = { task, id, isDone, date };
 
-    this.setState({ taskValue: value });
-    changeTask(value, id, isDone);
+    this.setState({ taskValue: task });
+    changeTask(newTask);
   };
 }
 
