@@ -61,7 +61,6 @@ class App extends Component {
       elem => (elem.id !== newTask.id ? elem : newTask)
     );
     this.setState({ taskList: newTaskList }, () => {
-      console.log('ololo');
       addToLS(this.state.taskList);
     });
   };
