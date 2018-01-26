@@ -27,6 +27,12 @@
 git clone https://github.com/Ustasjs/todo-app
 ```
 
+##### Перейдите в папку проекта
+
+```
+cd todo-app
+```
+
 ##### Установите модули локально
 
 ```
