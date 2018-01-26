@@ -1,0 +1,8 @@
+.Task {
+  margin-bottom: 5px;
+}
+
+.Task__text {
+  margin-left: 10px;
+  margin-right: 10px;
+}

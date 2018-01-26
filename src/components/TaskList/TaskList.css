@@ -1,0 +1,12 @@
+.TaskList__controls {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.TaskList__radio {
+  margin-right: 5px;
+}
+
+.TaskList__label + .TaskList__label {
+  margin-left: 15px;
+}

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './TaskList.css';
 import Task from './Task';
 
 class TaskList extends Component {

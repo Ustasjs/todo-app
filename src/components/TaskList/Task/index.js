@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './Task.css';
 
 class Task extends Component {
   state = {
@@ -39,9 +40,9 @@ class Task extends Component {
           onChange={this.handleChange}
           onBlur={this.handleBlur}
           type="text"
-          className="Task__text"
+          className="input Task__text"
         />
-        <button onClick={this.handleRemove} className="Task__button">
+        <button onClick={this.handleRemove} className="button Task__button">
           X
         </button>
       </li>

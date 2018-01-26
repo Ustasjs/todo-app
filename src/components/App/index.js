@@ -19,14 +19,19 @@ class App extends Component {
     return (
       <div className="App">
         <h1 className="App__title">Todo app</h1>
+        <div className="App__wrap">
+          <button
+            className="button button_check-all App__button"
+            onClick={this.handleCheckAllButtonClick}
+          >
+            Check all
+          </button>
+          <MainInput addNewTask={this.addNewTask} />
+        </div>
         <button
-          className="MainInput__button"
-          onClick={this.handleCheckAllButtonClick}
+          className="button button_clear App__button"
+          onClick={this.handleClearButtonClick}
         >
-          Check all
-        </button>
-        <MainInput addNewTask={this.addNewTask} />
-        <button className="App__button" onClick={this.handleClearButtonClick}>
           Clear local storage
         </button>
         <TaskList

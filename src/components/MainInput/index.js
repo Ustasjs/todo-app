@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './MainInput.css';
 import { makeId } from '../../utils';
 
 class MainInput extends Component {
@@ -16,7 +17,7 @@ class MainInput extends Component {
           onChange={this.handleChange}
           onBlur={this.handleBlur}
           type="text"
-          className="MainInput__input"
+          className="input MainInput__input"
         />
       </div>
     );
